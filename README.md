@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# 🎮 Campaign Chaos - AI-Powered Marketing Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun, interactive game where you play as an international marketer fixing hilariously bad ad translations! The game now features AI-powered prompt generation and intelligent scoring.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **AI-Generated Prompts**: Each game session gets unique marketing challenges created by AI
+- **Intelligent Scoring**: AI evaluates your slogans on humor, cultural fit, and creativity
+- **Dynamic Feedback**: Get personalized feedback for each round and final results
+- **Beautiful UI**: Modern, animated interface with spy file aesthetics
+- **5 Rounds**: Complete challenges for different products and markets
+- **Fun Titles**: Earn titles like "Future Global CMO" or "Lost in Translation, Literally"
 
-## Expanding the ESLint configuration
+## 🛠️ Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. **Set up OpenAI API:**
+   - Get an API key from [OpenAI](https://platform.openai.com/api-keys)
+   - Create a `.env` file in the root directory
+   - Add your API key:
+     ```
+     VITE_OPENAI_API_KEY=your_actual_api_key_here
+     ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+4. **Open your browser** and visit `http://localhost:5173`
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🎯 How to Play
+
+1. Click "Start Campaign" to begin
+2. Read the campaign briefing (product, market, problematic slogan)
+3. Write a culturally-appropriate, engaging slogan
+4. Submit and see your AI-powered score and feedback
+5. Complete 5 rounds to get your final title and feedback
+
+## 🤖 AI Features
+
+- **Dynamic Prompts**: AI generates unique marketing scenarios for each game
+- **Intelligent Scoring**: Evaluates humor, cultural sensitivity, and creativity
+- **Personalized Feedback**: Get specific advice for improvement
+- **Final Assessment**: Receive a witty summary of your marketing skills
+
+## 🎨 Scoring System
+
+Each slogan is scored (0-5) on:
+- **Humor**: How funny, witty, or clever is your slogan?
+- **Cultural Fit**: How well does it respect and appeal to the target culture?
+- **Creativity**: How original and creative is your approach?
+
+## 🛡️ Fallback System
+
+If AI is unavailable, the game gracefully falls back to:
+- Pre-written prompts
+- Rule-based scoring
+- Static feedback messages
+
+## 📱 Responsive Design
+
+The game works beautifully on desktop, tablet, and mobile devices.
+
+## 🎉 Have Fun!
+
+Test your international marketing skills and see if you have what it takes to be a Global CMO! 🌍✨

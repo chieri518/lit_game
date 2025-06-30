@@ -1,6 +1,6 @@
 import React from "react";
 
-function FinalScore({ totalScore, onRestart }) {
+function FinalScore({ totalScore, onRestart, aiFeedback }) {
   const getTitle = (score) => {
     if (score >= 60) return "🌟 Future Global CMO";
     if (score >= 45) return "🎯 Cultural Sensitivity Expert";
@@ -40,6 +40,15 @@ function FinalScore({ totalScore, onRestart }) {
       <div className="final-message">
         <p>{message}</p>
       </div>
+      
+      {aiFeedback && (
+        <div className="ai-final-feedback">
+          <h4>🤖 AI Marketing Expert Says:</h4>
+          <div className="ai-feedback-content">
+            <p>{aiFeedback}</p>
+          </div>
+        </div>
+      )}
       
       <div className="achievement">
         <h4>🏆 Achievement Unlocked:</h4>

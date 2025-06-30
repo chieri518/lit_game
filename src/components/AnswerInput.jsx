@@ -1,6 +1,6 @@
 import React from "react";
 
-function AnswerInput({ answer, setAnswer, handleSubmit }) {
+function AnswerInput({ answer, setAnswer, handleSubmit, isLoading }) {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && e.ctrlKey) {
       handleSubmit();
@@ -22,17 +22,23 @@ function AnswerInput({ answer, setAnswer, handleSubmit }) {
         rows={4}
         maxLength={200}
         className="slogan-textarea"
+        disabled={isLoading}
       />
       
       <div className="input-actions">
         <button 
           className="submit-btn" 
           onClick={handleSubmit}
-          disabled={!answer.trim()}
+          disabled={!answer.trim() || isLoading}
         >
-          🚀 Submit Campaign
+          {isLoading ? "🤖 AI is analyzing..." : "🚀 Submit Campaign"}
         </button>
-        <p className="hint">💡 Tip: Consider cultural values, humor, and creativity!</p>
+        <p className="hint">
+          {isLoading 
+            ? "🤖 AI is evaluating your marketing genius..." 
+            : "💡 Tip: Consider cultural values, humor, and creativity!"
+          }
+        </p>
       </div>
     </div>
   );

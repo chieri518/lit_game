@@ -1,10 +1,8 @@
 import React from "react";
-import { getFeedback } from "../utils/scoring";
 
-function ScoreCard({ scores, round, onNextRound }) {
-  const { humor, fit, creativity } = scores;
+function ScoreCard({ scores, round, onNextRound, aiFeedback }) {
+  const { humor, fit, creativity, feedback } = scores;
   const total = humor + fit + creativity;
-  const feedback = getFeedback(scores);
 
   return (
     <div className="score-card">
@@ -42,14 +40,33 @@ function ScoreCard({ scores, round, onNextRound }) {
         <h4>Round Total: {total}/15</h4>
       </div>
       
-      <div className="feedback">
-        <h4>💬 Feedback:</h4>
-        <ul>
-          {feedback.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      {feedback && (
+        <div className="ai-feedback">
+          <h4>🤖 AI Feedback:</h4>
+          <div className="feedback-details">
+            {feedback.humor && (
+              <div className="feedback-item">
+                <strong>Humor:</strong> {feedback.humor}
+              </div>
+            )}
+            {feedback.fit && (
+              <div className="feedback-item">
+                <strong>Cultural Fit:</strong> {feedback.fit}
+              </div>
+            )}
+            {feedback.creativity && (
+              <div className="feedback-item">
+                <strong>Creativity:</strong> {feedback.creativity}
+              </div>
+            )}
+          </div>
+          {aiFeedback && (
+            <div className="overall-feedback">
+              <strong>Overall:</strong> {aiFeedback}
+            </div>
+          )}
+        </div>
+      )}
       
       <button className="next-round-btn" onClick={onNextRound}>
         {round < 4 ? "Next Campaign →" : "See Final Results"}
