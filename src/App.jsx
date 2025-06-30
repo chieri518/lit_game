@@ -1,5 +1,5 @@
-import CampaignMode from "src/components/CampaignMode.jsx";
-import "./styles/styles.css";
+import CampaignMode from "./components/CampaignMode.jsx";
+import "./App.css";
 
 function App() {
   return (

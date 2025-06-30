@@ -1,18 +1,39 @@
 import React from "react";
 
 function AnswerInput({ answer, setAnswer, handleSubmit }) {
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && e.ctrlKey) {
+      handleSubmit();
+    }
+  };
+
   return (
     <div className="answer-input">
+      <div className="input-header">
+        <h4>💡 Your Brilliant Slogan:</h4>
+        <span className="char-count">{answer.length}/200</span>
+      </div>
+      
       <textarea
         value={answer}
         onChange={(e) => setAnswer(e.target.value)}
-        placeholder="Write your localized slogan here..."
+        onKeyPress={handleKeyPress}
+        placeholder="Write your culturally-appropriate, engaging slogan here... (Ctrl+Enter to submit)"
         rows={4}
-        style={{ width: "100%", padding: "8px" }}
+        maxLength={200}
+        className="slogan-textarea"
       />
-      <button onClick={handleSubmit} style={{ marginTop: "10px" }}>
-        Submit
-      </button>
+      
+      <div className="input-actions">
+        <button 
+          className="submit-btn" 
+          onClick={handleSubmit}
+          disabled={!answer.trim()}
+        >
+          🚀 Submit Campaign
+        </button>
+        <p className="hint">💡 Tip: Consider cultural values, humor, and creativity!</p>
+      </div>
     </div>
   );
 }
